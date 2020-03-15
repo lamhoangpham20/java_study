@@ -1,0 +1,65 @@
+1, Object oriented concepts
+
+1. Object is a type of parameter which has its own attribute and methods
+2. Class is a group of object with the same properties and methods
+ex:
+    class Person{
+        public string name;
+        public int age;
+        public int getAge()
+        {
+            return age;
+        }
+    }
+3. Instantiation of object (creating an object): is the method to create a new object of a class with its own attribute and method from the class
+    Person John = new Person;
+    John.name = "John";
+    John.age = 25;
+4. Visibility (public / private / protected)
++, public: attribute and method with public declaration in a class means that the attribute can be accessed (get or set) inside or outside of the class
++, private:  attribute and method with public declaration in a class means that the attribute can be accessed (get or set) inside of the class but can't be accessed from outside of the class
++, protected: attribute and method with public declaration in a class means that the attribute can be accessed (get or set) inside of the class and the inheritted class but can't be accessed from outside of the class
+5. Member datas / methods: is the properties or method which is declared in the class and is set for the object from the class with different value
+6. Inheritance: Inheritance class would inherit or use properties and method from the super class. If a method or attribute is changed or different from the super class it would be declared as super. 
+The object from Inheritance class would also be object from the super class.
+class Teacher extends Person{
+        constructor(super)
+        public string class_name;
+    }
+7. Interface
+8. Polymorphism: One object can be acted in many forms or belong to many class. For example an object created from Teacher class can also act as Person class and also a Staff class.
+9. Overriding: is a way to modify the method in an Inheritance class which has been declared form the original class. When this method is used by an object in the inheritance class it will run as the method has be re-writen in the inheritance one.
+example
+class Employee
+{
+    private string name;
+    private int salary;
+    public void setSalary(){
+        this.salary = 3000;
+    }
+}
+class Manager extends Employee
+{
+    private string name;
+    private int salary;
+    @Override
+    public void setSalary(){
+        this.salary = 5000;
+    }
+}
+
+10. Abstract class: is a class that has virtual function inside the class. New object can not be create with this class. This class is used for inheritance. New object can only be created from the inheritance class.
+example:
+abstract class Animal{
+    private string name;
+    abstract void talk();
+}
+class Dog extends Animal{
+    private string name;
+    public void talk(){
+        return "Gau Gau";
+    }
+}
+Animal obj1 = new Animal // error
+Dog dog = new Dog; //no error
+dog.talk() // "Gau Gau"
