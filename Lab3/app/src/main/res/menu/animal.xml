@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Birds"  android:id="@+id/birds"/>
+    <item android:title="Mammals" android:id="@+id/mammals"/>
+
+</menu>
