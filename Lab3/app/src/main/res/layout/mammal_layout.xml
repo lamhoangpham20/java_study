@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mammals">
-    </Button>
+        android:id="@+id/text1"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bear"
+            android:src="@drawable/bear"
+            android:onClick="bearTalk">
+        </ImageView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/wolf"
+            android:src="@drawable/wolf"
+            android:onClick="wolfTalk">
+        </ImageView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text2"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/elephant"
+            android:src="@drawable/elephant"
+            android:onClick="elephantTalk">
+        </ImageView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lamb"
+            android:src="@drawable/lamb"
+            android:onClick="lambTalk">
+        </ImageView>
+    </LinearLayout>
 </LinearLayout>
