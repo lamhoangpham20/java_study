@@ -2,6 +2,7 @@ package android.java.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -87,6 +88,11 @@ public class Task3Activity extends AppCompatActivity {
         MediaPlayer mediaPlayer;
         mediaPlayer = MediaPlayer.create(this, R.raw.wolf);
         mediaPlayer.start();
+    }
+    public void nextTask2(View view)
+    {
+        Intent nextTask = new Intent(this, EggTimerActivity.class);
+        startActivity(nextTask);
     }
 
 }

@@ -43,4 +43,11 @@
             android:onClick="lambTalk">
         </ImageView>
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:text="next task"
+        android:onClick="nextTask2">
+    </Button>
 </LinearLayout>

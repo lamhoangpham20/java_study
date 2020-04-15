@@ -7,6 +7,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/next_button2"
+        android:onClick="nextTask"
+        android:text="next task">
+    </Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/map"
         android:onClick="showMap"
         android:text="Open map">
@@ -36,12 +43,11 @@
             android:onClick="openWeb"
             android:text="Open">
         </Button>
-
-
     </LinearLayout>
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/oamk" />
+
 </LinearLayout>

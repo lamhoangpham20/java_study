@@ -41,5 +41,10 @@ public class Lab3_2 extends AppCompatActivity{
         Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
         startActivity(webIntent);
     }
+    public void nextTask(View view)
+    {
+        Intent nextTask = new Intent(this, Task3Activity.class);
+        startActivity(nextTask);
+    }
 
 }
