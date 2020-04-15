@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class Lab2_4Activity extends AppCompatActivity implements View.OnClickListener{
+public class Lab2_4Activity extends AppCompatActivity{
 
     @SuppressLint("ResourceType")
     @Override
@@ -28,23 +29,46 @@ public class Lab2_4Activity extends AppCompatActivity implements View.OnClickLis
         englishBtn.setText("English");
         sverigeBtn.setText("Sverige");
         suomeksiBtn.setText("Suomeksi");
-        surpriseBtn.setText("Suomeksi");
+        surpriseBtn.setText("Surprise");
+        surpriseBtn.setId(1);
         btnLayout1.addView(englishBtn);
         btnLayout1.addView(sverigeBtn);
         btnLayout2.addView(suomeksiBtn);
         btnLayout2.addView(surpriseBtn);
-        final ListView listView = new ListView(this);
+        final TextView textView = new TextView(this);
         setContentView(layout);
-        EditText editText= new EditText(this);
+        final EditText editText= new EditText(this);
         layout.addView(editText);
         layout.addView(btnLayout1);
         layout.addView(btnLayout2);
-        layout.addView(listView);
-        englishBtn.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        String text = "hello";
+        layout.addView(textView);
+        englishBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Hello " + editText.getText());
+            }
+        });
+        sverigeBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Hejjsan " + editText.getText());
+            }
+        });
+        suomeksiBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Terve " + editText.getText());
+            }
+        });
+        surpriseBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Hola " + editText.getText());
+            }
+        });
     }
 }

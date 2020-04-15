@@ -2,6 +2,7 @@ package android.java.lab2_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,7 +16,8 @@ import java.util.ArrayList;
 public class Lab2_3_Activity extends AppCompatActivity {
     final String[] COUNTRIES = new String[]{
             "Afghanistan","Albania", "Angeria", "American Samoa", "Andorra",
-            "Angola","Anguilla"
+            "Angola","Anguilla","Antarctica", "Antigua and Barbuda", "Argentina",
+            "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan"
     };
     ArrayList<String> list;
     @Override
@@ -31,22 +33,26 @@ public class Lab2_3_Activity extends AppCompatActivity {
         Button addBtn = new Button(this);
         Button editBtn = new Button(this);
         Button removeBtn = new Button(this);
+        Button nextBtn = new Button(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         addBtn.setText("Add");
         editBtn.setText("Edit");
         removeBtn.setText("Remove");
+        nextBtn.setText("Next Task");
         btnLayout.addView(addBtn);
         btnLayout.addView(editBtn);
         btnLayout.addView(removeBtn);
         final ListView listView = new ListView(this);
         setContentView(layout);
         final EditText editText= new EditText(this);
+        layout.addView(nextBtn);
         layout.addView(btnLayout);
         layout.addView(editText);
         layout.addView(listView);
         final ArrayAdapter<String> aa ;
         aa = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1,list);
         listView.setAdapter(aa);
+        final Intent intent = new Intent(this, Lab2_4Activity.class);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +73,12 @@ public class Lab2_3_Activity extends AppCompatActivity {
                         listView.setAdapter(aa);
                     }
                 }
+            }
+        });
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
             }
         });
     }
