@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 public class StockMoniterActivity extends AppCompatActivity {
     RequestQueue queue = null;
     ArrayList<String> prices = new ArrayList<String>();
+    ArrayList<String> brands = new ArrayList<String>();
+    ArrayList<String> list = new ArrayList<String>();
     ArrayAdapter<String> todoAdapter;
     private Object ArrayAdapter;
 
@@ -42,17 +45,17 @@ public class StockMoniterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final String[] brands = new String[]{
+        final String[] brand = new String[]{
                 "AAPL", "GOOGL", "FB", "NOK"
         };
-        for (int i = 0; i < brands.length; i++) {
-            prices.add(brands[i]);
+        for (int i = 0; i < brand.length; i++) {
+            brands.add(brand[i]);
         }
         setContentView(R.layout.activity_stock_moniter);
-        for (int i = 0; i < brands.length; i++) {
+        for (int i = 0; i < brand.length; i++) {
             RequestQueue queue = Volley.newRequestQueue(this);
-            final String id = brands[i];
-            String url = String.format("https://financialmodelingprep.com/api/company/price/%s?datatype=json", id);
+            final String id = brand[i];
+            String url = "https://financialmodelingprep.com/api/company/price/" +id+ "?datatype=json";
             Log.i("id",id);
 // Request a string response from the provided URL.
             JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -63,7 +66,9 @@ public class StockMoniterActivity extends AppCompatActivity {
                             try {
                                 JSONObject brand = response.getJSONObject(id);
                                 String price = brand.getString("price");
+                                Log.i("price", price);
                                 prices.add(price);
+                                Log.i("hello", Integer.toString(prices.size()));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -79,13 +84,19 @@ public class StockMoniterActivity extends AppCompatActivity {
             queue.add(stringRequest);
         }
 
-        ListView todoListView = findViewById(R.id.brand);
-
-        setTimeout(()-> {ArrayAdapter<String> todoAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, prices);},5000);
-
-        setTimeout(()->todoListView.setAdapter(todoAdapter),5000);
     }
+    public void showList(View view)
+    {
+        for (int i=0;i<prices.size();i++)
+        {
+            String item = brands.get(i) + " :" + prices.get(i);
+            list.add(item);
+        }
+        ListView todoListView = findViewById(R.id.brand);
+        ArrayAdapter<String> todoAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, list);
 
+        todoListView.setAdapter(todoAdapter);
+    }
 
 }

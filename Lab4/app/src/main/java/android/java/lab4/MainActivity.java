@@ -2,6 +2,7 @@ package android.java.lab4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -55,5 +56,10 @@ public void sendRequest()
         if(v.getId() == R.id.enterURL) {
             sendRequest();
         }
+    }
+    public void nextTask(View view)
+    {
+        Intent intent = new Intent(this, StockMoniterActivity.class);
+        startActivity(intent);
     }
 }
